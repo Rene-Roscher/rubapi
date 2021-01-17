@@ -24,7 +24,7 @@ class RUBApi
             ->withUserAgent(sprintf('RUBAPI-CLIENT @%s', $this->version))
             ->contentType('application/json')
             ->{$method}(sprintf('%s/%s', $this->uri, $endpoint), $payload);
-        return $response->json();
+        return json_decode(json_encode($response->json()), true);
     }
 
     public function __call($name, $arguments)
