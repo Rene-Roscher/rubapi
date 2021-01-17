@@ -24,13 +24,29 @@ Add the following section to your **config/services.php**
 ## Usage
 
 ``` php
-// Usage description here
+\RServices\RUBApi\RUBApiFacade::get('account');
+```
+
+``` json
+[
+  {
+    "id": 0,
+    "email": "string",
+    "first_name": "string",
+    "last_name": "string",
+    "company": "string",
+    "street": "string",
+    "house_number": "string",
+    "zip": "string",
+    "city": "string",
+    "region": "string"
+  }
+]
 ```
 
 ## Credits
 
 - [Rene Roscher](https://github.com/rene-roscher)
-- [All Contributors](../../contributors)
 
 ## License
 
