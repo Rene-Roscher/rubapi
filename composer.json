@@ -1,0 +1,52 @@
+{
+    "name": "rene-roscher/rubapi",
+    "description": "Roeth & Beck Reselling Wrapper for laravel",
+    "keywords": [
+        "rene-roscher",
+        "rubapi"
+    ],
+    "homepage": "https://github.com/rene-roscher/rubapi",
+    "license": "MIT",
+    "type": "library",
+    "authors": [
+        {
+            "name": "Rene Roscher",
+            "email": "r.roscher@r-services.eu",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": "^7.1"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^8.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "RServices\\RUBApi\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "RServices\\RUBApi\\Tests\\": "tests"
+        }
+    },
+    "scripts": {
+        "test": "vendor/bin/phpunit",
+        "test-coverage": "vendor/bin/phpunit --coverage-html coverage"
+
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "RServices\\RUBApi\\RUBApiServiceProvider"
+            ],
+            "aliases": {
+                "RUBApi": "RServices\\RUBApi\\RUBApiFacade"
+            }
+        }
+    }
+}
