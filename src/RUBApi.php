@@ -12,18 +12,18 @@ class RUBApi
     private $uri;
     private $version = 'v1.0.0';
 
-    public function __construct($uri = 'https://interface.roeth-und-beck.de/api/v1/')
+    public function __construct($uri = 'https://interface.roeth-und-beck.de/api/v1')
     {
         $this->uri = $uri;
     }
 
     public function request($method, $endpoint, $payload = null)
     {
-        throw_if(is_null($apiToken = config('services.rubapi.apiToken')), new InvalidArgumentException('no service params found for rubapi-client'));
+        throw_if(is_null($apiToken = config('services.rubapi.apiToken')), new \LogicException('no service params found for rubapi-client'));
         $response = Http::withToken($apiToken)
             ->withUserAgent(sprintf('RUBAPI-CLIENT @%s', $this->version))
             ->contentType('application/json')
-            ->{$method}(sprintf('%s', $endpoint), $payload);
+            ->{$method}(sprintf('%s/%s', $this->uri, $endpoint), $payload);
         return $response->json();
     }
 
